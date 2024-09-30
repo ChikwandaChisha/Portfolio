@@ -1,10 +1,11 @@
-/* GENERAL */
+/* GENERAL STYLES */
 
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
 
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 body {
@@ -17,6 +18,32 @@ html {
 
 p {
   color: rgb(85, 85, 85);
+}
+
+/* SECTION TITLES */
+
+.title {
+  font-size: 3rem;
+  color: #333;
+  margin-bottom: 1rem;
+  text-align: center;
+  width: 100%;
+}
+
+.section__text__p1 {
+  font-size: 1.5rem;
+  color: #555;
+  margin-bottom: 0.5rem;
+  text-align: center;
+  width: 100%;
+}
+
+/* Ensure centering in specific sections */
+#about .title,
+#experience .title,
+#projects .title,
+#contact .title {
+  text-align: center;
 }
 
 /* TRANSITION */
@@ -138,12 +165,8 @@ a:hover {
   transform: none;
 }
 
-.hamburger-icon span:first-child {
+.hamburger-icon span:nth-child(2) {
   opacity: 1;
-}
-
-.hamburger-icon span:first-child {
-  transform: none;
 }
 
 /* SECTIONS */
@@ -165,60 +188,56 @@ section {
 #profile {
   display: flex;
   justify-content: center;
-  gap: 5rem;
+  align-items: center;
+  gap: 2rem;
   height: 80vh;
+  padding: 0 10%;
 }
 
-.section__pic-container {
-  display: flex;
-  height: 400px;
-  width: 400px;
-  margin: auto 0;
+.section__pict-container {
+  flex: 1;
+  max-width: 600px;
+  height: auto;
+}
+
+.section__pict-container img {
+  width: 100%;
+  height: auto;
+  border-radius: 50%;  /* If you want a circular image */
 }
 
 .section__text {
-  align-self: center;
+  flex: 1;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
-}
-
-.section__text p {
-  font-weight: 600;
 }
 
 .section__text__p1 {
-  text-align: center;
-}
-
-.section__text__p2 {
-  font-size: 1.75rem;
-  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  color: #555;
+  margin-bottom: 0.5rem;
 }
 
 .title {
   font-size: 3rem;
-  text-align: center;
+  color: #333;
+  margin-bottom: 0.5rem;
 }
 
-#socials-container {
-  display: flex;
-  justify-content: center;
-  margin-top: 1rem;
-  gap: 1rem;
+.section__text__p2 {
+  font-size: 1.25rem;
+  color: #666;
+  margin-bottom: 1.5rem;
 }
-
-/* ICONS */
-
-.icon {
-  cursor: pointer;
-  height: 2rem;
-}
-
-/* BUTTONS */
 
 .btn-container {
   display: flex;
   justify-content: center;
   gap: 1rem;
+  margin-bottom: 1.5rem;
 }
 
 .btn {
@@ -227,6 +246,7 @@ section {
   padding: 1rem;
   width: 8rem;
   border-radius: 2rem;
+  cursor: pointer;
 }
 
 .btn-color-1,
@@ -257,8 +277,23 @@ section {
   border: rgb(255, 255, 255) 0.1rem solid;
 }
 
-.btn-container {
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#socials-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
   gap: 1rem;
+}
+
+/* ICONS */
+
+.icon {
+  cursor: pointer;
+  height: 2rem;
 }
 
 /* ABOUT SECTION */
@@ -282,9 +317,27 @@ section {
 .about-details-container {
   display: flex;
 }
+/* Ensure consistent color across all text elements */
+p, ul, li {
+  color: #333333; /* Ensure this matches your desired text color */
+}
+
+/* Adjust margin and padding for list items */
+.about-list {
+  margin-left: 20rem; /* Or adjust as needed for spacing */
+  list-style-type: disc; /* Standard bullet points */
+}
+
+.about-list li {
+  margin-bottom: 0.5rem; /* Add spacing between list items */
+  margin-left: ;
+}
 
 .about-pic {
-  border-radius: 2rem;
+  flex: 1;
+  max-width: 600px;
+  height: auto ;
+  
 }
 
 .arrow {
@@ -306,12 +359,6 @@ section {
 .section-container {
   gap: 4rem;
   height: 80%;
-}
-
-.section__pic-container {
-  height: 400px;
-  width: 400px;
-  margin: auto 0;
 }
 
 /* EXPERIENCE SECTION */
@@ -380,7 +427,7 @@ article .icon {
   border-color: rgb(163, 163, 163);
 }
 
-/* CONTACT */
+/* CONTACT SECTION */
 
 #contact {
   display: flex;
@@ -395,7 +442,7 @@ article .icon {
   border-radius: 2rem;
   border: rgb(53, 53, 53) 0.1rem solid;
   border-color: rgb(163, 163, 163);
-  background: (250, 250, 250);
+  background: rgb(250, 250, 250);
   margin: 2rem auto;
   padding: 0.5rem;
 }
@@ -420,7 +467,7 @@ article .icon {
   height: 2.5rem;
 }
 
-/* FOOTER SECTION */
+/* FOOTER */
 
 footer {
   height: 26vh;
@@ -429,4 +476,36 @@ footer {
 
 footer p {
   text-align: center;
+}
+
+/* RESPONSIVE DESIGN */
+
+@media (max-width: 768px) {
+  #profile {
+    flex-direction: column;
+    height: auto;
+    padding: 4rem 10%;
+  }
+
+  .section__pict-container,
+  .section__text {
+    max-width: 100%;
+  }
+
+  .about-containers {
+    flex-direction: column;
+  }
+
+  #contact,
+  footer {
+    height: 40vh;
+  }
+
+  #profile,
+  #about,
+  #experience,
+  #projects,
+  #contact {
+    margin: 0 5%;
+  }
 }
