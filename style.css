@@ -317,25 +317,10 @@ section {
 .about-details-container {
   display: flex;
 }
-/* Ensure consistent color across all text elements */
-p, ul, li {
-  color: #333333; /* Ensure this matches your desired text color */
-}
-
-/* Adjust margin and padding for list items */
-.about-list {
-  margin-left: 20rem; /* Or adjust as needed for spacing */
-  list-style-type: disc; /* Standard bullet points */
-}
-
-.about-list li {
-  margin-bottom: 0.5rem; /* Add spacing between list items */
-  margin-left: ;
-}
 
 .about-pic {
   flex: 1;
-  max-width: 600px;
+  max-width: 250px;
   height: auto ;
   
 }
