@@ -465,6 +465,15 @@ footer p {
 
 /* RESPONSIVE DESIGN */
 
+@media screen and (max-width: 1200px) {
+  #desktop-nav {
+    display: none;
+  }
+  #hamburger-nav {
+    display: flex;
+  }
+}
+
 @media (max-width: 768px) {
   #profile {
     flex-direction: column;
