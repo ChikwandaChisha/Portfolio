@@ -25,29 +25,47 @@
         }
 
         .welcome-text {
-            font-size: 3rem;
-            color: #333;
-            display: flex;
-            gap: 0.5rem;
+          font-size: 10vw; /* Responsive font size */
+          color: #333;
+          display: flex;
+          flex-wrap: wrap; /* Allow wrapping on smaller screens */
+          justify-content: center;
+          align-items: center;
+          text-align: center;
+          padding: 1rem;
         }
 
         .welcome-word {
-            opacity: 0;
-            transform: translateY(20px);
+          opacity: 0;
+          transform: translateY(20px);
+          margin: 0 0.5rem; /* Add space between words */
         }
 
         @keyframes popUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+          to {
+              opacity: 1;
+              transform: translateY(0);
+          }
+      }
 
-        .hidden {
-            opacity: 0;
-            pointer-events: none;
-        }
-    </style>
+      .hidden {
+          opacity: 0;
+          pointer-events: none;
+      }
+
+      /* Media queries for font size adjustments */
+      @media (min-width: 768px) {
+          .welcome-text {
+              font-size: 6vw;
+          }
+      }
+
+      @media (min-width: 1024px) {
+          .welcome-text {
+              font-size: 4vw;
+          }
+      }
+  </style>
 </head>
 <body>
     <div class="welcome-screen">
@@ -162,7 +180,7 @@
         </div>
       </div>
       <img
-        src="./assets/arrow.png"
+        src="./pictures/arrow.png"
         alt="Arrow icon"
         class="icon arrow"
         onclick="location.href='./#experience'"
