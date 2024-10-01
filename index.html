@@ -6,373 +6,438 @@
     <title>Chikwanda Chisha</title>
     <link rel="stylesheet" href="style.css"/>
     <link rel="stylesheet" href="mediaqueries.css"/>
+    <style>
+        .welcome-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            opacity: 1;
+            transition: opacity 0.5s ease-out;
+        }
+
+        .welcome-text {
+            font-size: 3rem;
+            color: #333;
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .welcome-word {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        @keyframes popUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+    </style>
 </head>
 <body>
+    <div class="welcome-screen">
+        <h1 class="welcome-text">
+            <span class="welcome-word">WELCOME</span>
+            <span class="welcome-word">TO</span>
+            <span class="welcome-word">MY</span>
+            <span class="welcome-word">SITE!</span>
+        </h1>
+    </div>
+
+
     <nav id="desktop-nav"> 
-        <div class="logo">Chikwanda Chisha</div>
-        <div>
-            <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contacts">Contacts</a></li>
-            </ul>
-        </div>
-    </nav>
-    <nav id="hamburger-nav">
-        <div class="logo">Chikwanda Chisha</div>
-        <div class="hamburger-menu">
-            <div class="hamburger-icon" onclick="toggleMenu()"> 
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-            <ul class="menu-links">
-                <li><a href="#about" onclick="toggleMenu()">About</a></li>
-                <li><a href="#experience" onclick="toggleMenu()">Experience</a></li>
-                <li><a href="#projects" onclick="toggleMenu()">Projects</a></li>
-                <li><a href="#contacts" onclick="toggleMenu()">Contacts</a></li> 
-            </ul>
-        </div>        
-    </nav>
-    <section id="profile">
-        <div class="section__pict-container">
-            <img src="./pictures/DP.png" alt="Chikwanda Profile Picture">
-        </div>
-        <div class="section__text">
-            <p class="section__text__p1">Hello, I am </p>
-            <h1 class="title">Chikwanda Chisha</h1>
-            <p class="section__text__p2">A junior at Dartmouth College</p>
-            <div class="btn-container">
-                <button
-                class="btn btn-color-2"
-                onclick="window.open('./pictures/resume.pdf')">
-
-                Download Resume</button>
-                <button
-                class="btn btn-color-1"
-                onclick="location.href='./#contact'">
-
-                Contact me</button>
-            </div>
-            <div id="socials-container">
-                <img src="./pictures/linkedin.png" alt="My LinkedIn Profile"
-                class="icon" onclick="window.open('http://www.linkedin.com/in/chikwanda-chisha')">
-                <img src="./pictures/github.png" alt="My Github Profile"
-                class="icon" onclick="window.open('https://github.com/ChikwandaChisha')">
-            </div>
-        </div>
-    </section>
-    <section id="about">
-        <p class="section__text__p1">Get To Know More</p>
-        <h1 class="title">About Me</h1>
-        <div class="section-container">
-          <div class="section__pic-container">
-            <img
-              src="./pictures/about-me-pic.png"
-              alt="Profile picture"
-              class="about-pic"
-            />
-          </div>
-          <div class="about-details-container">
-            <div class="about-containers">
-              <div class="details-container">
-                <img
-                  src="./pictures/experience.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <h3>Experience</h3>
-                <p>2+ years <br />Backend Development</p>
-              </div>
-              <div class="details-container">
-                <img
-                  src="./pictures/education.png"
-                  alt="Education icon"
-                  class="icon"
-                />
-                <h3>Education</h3>
-                <p>BA in Computer Science and Economics<br />Dartmouth College</p>
-              </div>
-            </div>
-            <div>
-              <p> Hey there! Welcome to my digital space! I'm a Computer Science 
-                and Economics student with a passion for harnessing technology to 
-                tackle real-world challenges. <br>
-                When I'm not doing tech or finance-related things, you'll find me 
-                shooting hoops on the basketball court, capturing stories through 
-                the lens of my camera, or expressing myself through the art of dance.
-             <br> <br>
-               My goal? To innovate, learn, and make a lasting impact. 
-                Ready to create something extraordinary? Let's connect and bring ideas to life!
-              </p>
-            </div>
-          </div>
-        </div>
-        <img
-          src="./assets/arrow.png"
-          alt="Arrow icon"
-          class="icon arrow"
-          onclick="location.href='./#experience'"
-        />
-      </section>
-
-      <section id="experience">
-        <p class="section__text__p1">Explore My</p>
-        <h1 class="title">Experience</h1>
-        <div class="experience-details-container">
-          <div class="about-containers">
-            <div class="details-container">
-              <h2 class="experience-sub-title">Frontend Development</h2>
-              <div class="article-container">
-                <article>
-                  <img
-                    src="./pictures/checkmark.png"
-                    alt="Experience icon"
-                    class="icon"
-                  />
-                  <div>
-                    <h3>HTML</h3>
-                    <p>Intermediate</p>
-                  </div>
-                </article>
-                <article>
-                  <img
-                    src="./pictures/checkmark.png"
-                    alt="Experience icon"
-                    class="icon"
-                  />
-                  <div>
-                    <h3>CSS</h3>
-                    <p>Intermediate</p>
-                  </div>
-                </article>
-                <!-- <article>
-                  <img
-                    src="./pictures/checkmark.png"
-                    alt="Experience icon"
-                    class="icon"
-                  /> -->
-                  <!-- <div>
-                    <h3>SASS</h3>
-                    <p>Intermediate</p>
-                  </div> -->
-                <!-- </article> -->
-                <article>
-                  <img
-                    src="./pictures/checkmark.png"
-                    alt="Experience icon"
-                    class="icon"
-                  />
-                  <div>
-                    <h3>JavaScript</h3>
-                    <p>Basic</p>
-                  </div>
-                </article>
-                <article>
-                  <img
-                    src="./pictures/checkmark.png"
-                    alt="Experience icon"
-                    class="icon"
-                  />
-                  <div>
-                    <h3>TypeScript</h3>
-                    <p>Basic</p>
-                  </div>
-                </article>
-                <article>
-                  <img
-                    src="./pictures/checkmark.png"
-                    alt="Experience icon"
-                    class="icon"
-                  />
-                  <div>
-                    <h3>React.js</h3>
-                    <p>Basic</p>
-                  </div>
-                </article>
-              </div>
-            </div>
-            <div class="details-container">
-              <h2 class="experience-sub-title">Backend Development</h2>
-              <div class="article-container">
-                <article>
-                  <img
-                    src="./pictures/checkmark.png"
-                    alt="Experience icon"
-                    class="icon"
-                  />
-                  <div>
-                    <h3>Python</h3>
-                    <p>Experienced</p>
-                  </div>
-                </article>
-                <article>
-                  <img
-                    src="./pictures/checkmark.png"
-                    alt="Experience icon"
-                    class="icon"
-                  />
-                  <div>
-                    <h3>Java</h3>
-                    <p>Experienced</p>
-                  </div>
-                </article>
-                <article>
-                  <img
-                    src="./pictures/checkmark.png"
-                    alt="Experience icon"
-                    class="icon"
-                  />
-                  <div>
-                    <h3>C/C++</h3>
-                    <p>Intermediate</p>
-                  </div>
-                </article>
-                <article>
-                  <img
-                    src="./pictures/checkmark.png"
-                    alt="Experience icon"
-                    class="icon"
-                  />
-                  <div>
-                    <h3>Git</h3>
-                    <p>Intermediate</p>
-                  </div>
-                </article>
-              </div>
-            </div>
-          </div>
-        </div>
-        <img
-          src="./pictures/arrow.png"
-          alt="Arrow icon"
-          class="icon arrow"
-          onclick="location.href='./#projects'"
-        />
-      </section>
-      <section id="projects">
-        <p class="section__text__p1">Browse My Recent</p>
-        <h1 class="title">Projects</h1>
-        <div class="experience-details-container">
-          <div class="about-containers">
-            <div class="details-container color-container">
-              <div class="article-container">
-                <!-- <img
-                  src="./assets/project-1.png"
-                  alt="Project 1"
-                  class="project-img"
-                /> -->
-              </div>
-              <h2 class="experience-sub-title project-title">Tiny Search Engine (in progress)</h2>
-              <div class="btn-container">
-                <button
-                  class="btn btn-color-2 project-btn"
-                  onclick="window.open('https://github.com/ChikwandaChisha/Tiny-Search-Engine')"
-                >
-                  Github
-                </button>
-                <!-- <button
-                  class="btn btn-color-2 project-btn"
-                  onclick="window.open('https://github.com/ChikwandaChisha', ' _blank')"
-                >
-                  Live Demo
-                </button> -->
-              </div>
-            </div>
-            <div class="details-container color-container">
-              <div class="article-container">
-                <!-- <img
-                  src="./assets/project-2.png"
-                  alt="Project 2"
-                  class="project-img"
-                /> -->
-              </div>
-              <h2 class="experience-sub-title project-title">Collaborative Graphical Editor</h2>
-              <div class="btn-container">
-                <button
-                  class="btn btn-color-2 project-btn"
-                  onclick="window.open('https://github.com/ChikwandaChisha/Graphy')"
-                >
-                  Github
-                </button>
-                <!-- <button
-                  class="btn btn-color-2 project-btn"
-                  onclick="location.href='https://github.com/ChikwandaChisha'"
-                >
-                  Live Demo
-                </button> -->
-              </div>
-            </div>
-            <div class="details-container color-container">
-              <div class="article-container">
-                <!-- <img
-                  src="./assets/project-3.png"
-                  alt="Project 3"
-                  class="project-img"
-                /> -->
-              </div>
-              <h2 class="experience-sub-title project-title">Sudi <br/> <br></h2>
-              <div class="btn-container">
-                <button
-                  class="btn btn-color-2 project-btn"
-                  onclick="window.open('https://github.com/ChikwandaChisha/Sudi')"
-                >
-                  Github
-                </button>
-                <!-- <button
-                  class="btn btn-color-2 project-btn"
-                  onclick="location.href='https://github.com/ChikwandaChisha'"
-                >
-                  Live Demo
-                </button> -->
-              </div>
-            </div>
-          </div>
-        </div>
-        <img
-          src="./pictures/arrow.png"
-          alt="Arrow icon"
-          class="icon arrow"
-          onclick="location.href='./#contact'"
-        />
-      </section>
-
-      <section id="contact">
-        <p class="section__text__p1">Get in Touch</p>
-        <h1 class="title">Contact Me</h1>
-        <div class="contact-info-upper-container">
-          <div class="contact-info-container">
-            <img
-              src="./pictures/email.png"
-              alt="Email icon"
-              class="icon contact-icon email-icon"
-            />
-            <p><a href="mailto:hello.chikwanda@gmail.com">Email</a></p>
-          </div>
-          <div class="contact-info-container">
-            <img
-              src="./pictures/linkedin.png"
-              alt="LinkedIn icon"
-              class="icon contact-icon"
-            />
-            <p><a href="https://www.linkedin.com/in/chikwanda-chisha" target="_blank" rel="noopener noreferrer">LinkedIn</a></p>
-          </div>
-        </div>
-      </section>
-      <footer>
-        <nav>
-          <div class="nav-links-container">
-            <ul class="nav-links">
+      <!-- <div class="logo">Chikwanda Chisha</div> -->
+      <div>
+          <ul class="nav-links">
               <li><a href="#about">About</a></li>
               <li><a href="#experience">Experience</a></li>
               <li><a href="#projects">Projects</a></li>
-              <li><a href="#contact">Contact</a></li>
-            </ul>
+              <li><a href="#contacts">Contacts</a></li>
+          </ul>
+      </div>
+  </nav>
+  <nav id="hamburger-nav">
+      <div class="logo">Chikwanda Chisha</div>
+      <div class="hamburger-menu">
+          <div class="hamburger-icon" onclick="toggleMenu()"> 
+              <span></span>
+              <span></span>
+              <span></span>
           </div>
-        </nav>
-      </footer>
-      <script src="script.js"></script>
-    <script src="script.js"></script>
+          <ul class="menu-links">
+              <li><a href="#about" onclick="toggleMenu()">About</a></li>
+              <li><a href="#experience" onclick="toggleMenu()">Experience</a></li>
+              <li><a href="#projects" onclick="toggleMenu()">Projects</a></li>
+              <li><a href="#contacts" onclick="toggleMenu()">Contacts</a></li> 
+          </ul>
+      </div>        
+  </nav>
+  <section id="profile">
+      <div class="section__pict-container">
+          <img src="./pictures/DP.png" alt="Chikwanda Profile Picture">
+      </div>
+      <div class="section__text">
+          <p class="section__text__p1">Hello, I am </p>
+          <h1 class="title">Chikwanda Chisha</h1>
+          <p class="section__text__p2">A junior at Dartmouth College</p>
+          <div class="btn-container">
+              <button
+              class="btn btn-color-2"
+              onclick="window.open('./pictures/resume.pdf')">
+
+              Download Resume</button>
+              <button
+              class="btn btn-color-1"
+              onclick="location.href='./#contact'">
+
+              Contact me</button>
+          </div>
+          <div id="socials-container">
+              <img src="./pictures/linkedin.png" alt="My LinkedIn Profile"
+              class="icon" onclick="window.open('http://www.linkedin.com/in/chikwanda-chisha')">
+              <img src="./pictures/github.png" alt="My Github Profile"
+              class="icon" onclick="window.open('https://github.com/ChikwandaChisha')">
+          </div>
+      </div>
+  </section>
+  <section id="about">
+      <p class="section__text__p1">Get To Know More</p>
+      <h1 class="title">About Me</h1>
+      <div class="section-container">
+        <div class="section__pic-container">
+          <img
+            src="./pictures/about-me-pic.png"
+            alt="Profile picture"
+            class="about-pic"
+          />
+        </div>
+        <div class="about-details-container">
+          <div class="about-containers">
+            <div class="details-container">
+              <img
+                src="./pictures/experience.png"
+                alt="Experience icon"
+                class="icon"
+              />
+              <h3>Experience</h3>
+              <p>2+ years <br />Backend Development</p>
+            </div>
+            <div class="details-container">
+              <img
+                src="./pictures/education.png"
+                alt="Education icon"
+                class="icon"
+              />
+              <h3>Education</h3>
+              <p>BA in Computer Science and Economics<br />Dartmouth College</p>
+            </div>
+          </div>
+          <div>
+            <p> Hey there! Welcome to my digital space! I'm a Computer Science 
+              and Economics student with a passion for harnessing technology to 
+              tackle real-world challenges. <br>
+              When I'm not doing tech or finance-related things, you'll find me 
+              shooting hoops on the basketball court, capturing stories through 
+              the lens of my camera, or expressing myself through the art of dance.
+           <br> <br>
+             My goal? To innovate, learn, and make a lasting impact. 
+              Ready to create something extraordinary? Let's connect and bring ideas to life!
+            </p>
+          </div>
+        </div>
+      </div>
+      <img
+        src="./assets/arrow.png"
+        alt="Arrow icon"
+        class="icon arrow"
+        onclick="location.href='./#experience'"
+      />
+    </section>
+
+    <section id="experience">
+      <p class="section__text__p1">Explore My</p>
+      <h1 class="title">Experience</h1>
+      <div class="experience-details-container">
+        <div class="about-containers">
+          <div class="details-container">
+            <h2 class="experience-sub-title">Frontend Development</h2>
+            <div class="article-container">
+              <article>
+                <img
+                  src="./pictures/checkmark.png"
+                  alt="Experience icon"
+                  class="icon"
+                />
+                <div>
+                  <h3>HTML</h3>
+                  <p>Intermediate</p>
+                </div>
+              </article>
+              <article>
+                <img
+                  src="./pictures/checkmark.png"
+                  alt="Experience icon"
+                  class="icon"
+                />
+                <div>
+                  <h3>CSS</h3>
+                  <p>Intermediate</p>
+                </div>
+              </article>
+              <!-- <article>
+                <img
+                  src="./pictures/checkmark.png"
+                  alt="Experience icon"
+                  class="icon"
+                /> -->
+                <!-- <div>
+                  <h3>SASS</h3>
+                  <p>Intermediate</p>
+                </div> -->
+              <!-- </article> -->
+              <article>
+                <img
+                  src="./pictures/checkmark.png"
+                  alt="Experience icon"
+                  class="icon"
+                />
+                <div>
+                  <h3>JavaScript</h3>
+                  <p>Basic</p>
+                </div>
+              </article>
+              <article>
+                <img
+                  src="./pictures/checkmark.png"
+                  alt="Experience icon"
+                  class="icon"
+                />
+                <div>
+                  <h3>TypeScript</h3>
+                  <p>Basic</p>
+                </div>
+              </article>
+              <article>
+                <img
+                  src="./pictures/checkmark.png"
+                  alt="Experience icon"
+                  class="icon"
+                />
+                <div>
+                  <h3>React.js</h3>
+                  <p>Basic</p>
+                </div>
+              </article>
+            </div>
+          </div>
+          <div class="details-container">
+            <h2 class="experience-sub-title">Backend Development</h2>
+            <div class="article-container">
+              <article>
+                <img
+                  src="./pictures/checkmark.png"
+                  alt="Experience icon"
+                  class="icon"
+                />
+                <div>
+                  <h3>Python</h3>
+                  <p>Experienced</p>
+                </div>
+              </article>
+              <article>
+                <img
+                  src="./pictures/checkmark.png"
+                  alt="Experience icon"
+                  class="icon"
+                />
+                <div>
+                  <h3>Java</h3>
+                  <p>Experienced</p>
+                </div>
+              </article>
+              <article>
+                <img
+                  src="./pictures/checkmark.png"
+                  alt="Experience icon"
+                  class="icon"
+                />
+                <div>
+                  <h3>C/C++</h3>
+                  <p>Intermediate</p>
+                </div>
+              </article>
+              <article>
+                <img
+                  src="./pictures/checkmark.png"
+                  alt="Experience icon"
+                  class="icon"
+                />
+                <div>
+                  <h3>Git</h3>
+                  <p>Intermediate</p>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </div>
+      <img
+        src="./pictures/arrow.png"
+        alt="Arrow icon"
+        class="icon arrow"
+        onclick="location.href='./#projects'"
+      />
+    </section>
+    <section id="projects">
+      <p class="section__text__p1">Browse My Recent</p>
+      <h1 class="title">Projects</h1>
+      <div class="experience-details-container">
+        <div class="about-containers">
+          <div class="details-container color-container">
+            <div class="article-container">
+              <!-- <img
+                src="./assets/project-1.png"
+                alt="Project 1"
+                class="project-img"
+              /> -->
+            </div>
+            <h2 class="experience-sub-title project-title">Tiny Search Engine (in progress)</h2>
+            <div class="btn-container">
+              <button
+                class="btn btn-color-2 project-btn"
+                onclick="window.open('https://github.com/ChikwandaChisha/Tiny-Search-Engine')"
+              >
+                Github
+              </button>
+              <!-- <button
+                class="btn btn-color-2 project-btn"
+                onclick="window.open('https://github.com/ChikwandaChisha', ' _blank')"
+              >
+                Live Demo
+              </button> -->
+            </div>
+          </div>
+          <div class="details-container color-container">
+            <div class="article-container">
+              <!-- <img
+                src="./assets/project-2.png"
+                alt="Project 2"
+                class="project-img"
+              /> -->
+            </div>
+            <h2 class="experience-sub-title project-title">Collaborative Graphical Editor</h2>
+            <div class="btn-container">
+              <button
+                class="btn btn-color-2 project-btn"
+                onclick="window.open('https://github.com/ChikwandaChisha/Graphy')"
+              >
+                Github
+              </button>
+              <!-- <button
+                class="btn btn-color-2 project-btn"
+                onclick="location.href='https://github.com/ChikwandaChisha'"
+              >
+                Live Demo
+              </button> -->
+            </div>
+          </div>
+          <div class="details-container color-container">
+            <div class="article-container">
+              <!-- <img
+                src="./assets/project-3.png"
+                alt="Project 3"
+                class="project-img"
+              /> -->
+            </div>
+            <h2 class="experience-sub-title project-title">Sudi <br/> <br></h2>
+            <div class="btn-container">
+              <button
+                class="btn btn-color-2 project-btn"
+                onclick="window.open('https://github.com/ChikwandaChisha/Sudi')"
+              >
+                Github
+              </button>
+              <!-- <button
+                class="btn btn-color-2 project-btn"
+                onclick="location.href='https://github.com/ChikwandaChisha'"
+              >
+                Live Demo
+              </button> -->
+            </div>
+          </div>
+        </div>
+      </div>
+      <img
+        src="./pictures/arrow.png"
+        alt="Arrow icon"
+        class="icon arrow"
+        onclick="location.href='./#contact'"
+      />
+    </section>
+
+    <section id="contact">
+      <p class="section__text__p1">Get in Touch</p>
+      <h1 class="title">Contact Me</h1>
+      <div class="contact-info-upper-container">
+        <div class="contact-info-container">
+          <img
+            src="./pictures/email.png"
+            alt="Email icon"
+            class="icon contact-icon email-icon"
+          />
+          <p><a href="mailto:hello.chikwanda@gmail.com">Email</a></p>
+        </div>
+        <div class="contact-info-container">
+          <img
+            src="./pictures/linkedin.png"
+            alt="LinkedIn icon"
+            class="icon contact-icon"
+          />
+          <p><a href="https://www.linkedin.com/in/chikwanda-chisha" target="_blank" rel="noopener noreferrer">LinkedIn</a></p>
+        </div>
+      </div>
+    </section>
+    <footer>
+      <nav>
+        <div class="nav-links-container">
+          <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+      </nav>
+
+      <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const welcomeScreen = document.querySelector('.welcome-screen');
+            const words = document.querySelectorAll('.welcome-word');
+            
+            words.forEach((word, index) => {
+                setTimeout(() => {
+                    word.style.animation = 'popUp 0.5s ease-out forwards';
+                }, index * 500); // 500ms delay between each word
+            });
+
+            // Hide welcome screen after all words have appeared plus a bit of extra time
+            setTimeout(() => {
+                welcomeScreen.classList.add('hidden');
+            }, words.length * 500 + 1000); // Total animation time plus 1 second
+        });
+    </script>
 </body>
 </html>
