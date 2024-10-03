@@ -34,7 +34,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Optional: Add animation to the flip card on hover
+// Animation to the flip card on hover
 const flipCard = document.querySelector('.flip-card');
 if (flipCard) {
     flipCard.addEventListener('mouseenter', () => {
@@ -44,3 +44,30 @@ if (flipCard) {
         flipCard.style.transform = 'rotateY(0deg)';
     });
 }
+
+// Typing and deleting effect for the name "Chikwanda Chisha"
+const nameElement = document.getElementById('animated-name');
+const nameText = "Chikwanda Chisha";
+let currentIndex = 0;
+let isDeleting = false;
+
+function animateName() {
+    if (!isDeleting && currentIndex <= nameText.length) {
+        nameElement.innerHTML = nameText.slice(0, currentIndex);
+        currentIndex++;
+    } else if (isDeleting && currentIndex > 0) {
+        nameElement.innerHTML = nameText.slice(0, currentIndex - 1);
+        currentIndex--;
+    }
+
+    if (currentIndex === nameText.length) {
+        setTimeout(() => isDeleting = true, 1000); // Pause before deleting
+    } else if (currentIndex === 0) {
+        isDeleting = false;
+    }
+
+    setTimeout(animateName, isDeleting ? 100 : 200); // Adjust speed of typing and deleting
+}
+
+// Start the name animation
+animateName();

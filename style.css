@@ -223,6 +223,20 @@ section {
     margin-bottom: 1.5rem;
 }
 
+#animated-name {
+  width: 15ch; /* Fixed width based on the character count of "Chikwanda Chisha" */
+  white-space: nowrap;
+  overflow: hidden;
+  display: inline-block;
+}
+
+@keyframes blinkCursor {
+  50% {
+      border-color: transparent;
+  }
+}
+
+
 /* BUTTONS */
 .btn-container {
     display: flex;
