@@ -34,6 +34,29 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
+
+// Intersection Observer for scroll animations
+const sections = document.querySelectorAll("section");
+
+const observerOptions = {
+  threshold: 0.1, // Trigger when 10% of the section is in the viewport
+};
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("animate"); // Add the 'animate' class
+    } else {
+      entry.target.classList.remove("animate"); // Remove the 'animate' class when out of view
+    }
+  });
+}, observerOptions);
+
+sections.forEach((section) => {
+  observer.observe(section);
+});
+
+
 // Animation to the flip card on hover
 const flipCard = document.querySelector('.flip-card');
 if (flipCard) {
@@ -52,22 +75,28 @@ let currentIndex = 0;
 let isDeleting = false;
 
 function animateName() {
+    const displayText = nameText.slice(0, currentIndex);
+    // Use non-breaking spaces to maintain consistent width
+    const spaces = '\u00A0'.repeat(nameText.length - displayText.length);
+    nameElement.textContent = displayText + spaces;
+
     if (!isDeleting && currentIndex <= nameText.length) {
-        nameElement.innerHTML = nameText.slice(0, currentIndex);
         currentIndex++;
     } else if (isDeleting && currentIndex > 0) {
-        nameElement.innerHTML = nameText.slice(0, currentIndex - 1);
         currentIndex--;
     }
 
-    if (currentIndex === nameText.length) {
+    if (currentIndex === nameText.length + 1) {
         setTimeout(() => isDeleting = true, 1000); // Pause before deleting
     } else if (currentIndex === 0) {
         isDeleting = false;
     }
 
-    setTimeout(animateName, isDeleting ? 100 : 200); // Adjust speed of typing and deleting
+    const typingSpeed = isDeleting ? 20 : 80;
+    setTimeout(animateName, typingSpeed);
 }
 
-// Start the name animation
-animateName();
+// Start the name animation when the document is loaded
+document.addEventListener('DOMContentLoaded', () => {
+    animateName();
+});
