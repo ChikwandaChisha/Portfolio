@@ -1,6 +1,6 @@
 # Chikwanda Chisha - Portfolio Website
 
-Hey! Thank you for checking our my website code. You can visit the live site at [chikwandachisha.netlify.app](https://chikwandachisha.netlify.app/).
+Hey! Thank you for checking out my website code. You can visit the live site at [chikwandachisha.netlify.app](https://chikwandachisha.netlify.app/).
 
 ## Technologies
 - HTML5
