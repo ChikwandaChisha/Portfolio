@@ -11,16 +11,25 @@ document.addEventListener('DOMContentLoaded', function() {
     const welcomeScreen = document.querySelector('.welcome-screen');
     const words = document.querySelectorAll('.welcome-word');
     
-    words.forEach((word, index) => {
-        setTimeout(() => {
-            word.style.animation = 'popUp 0.5s ease-out forwards';
-        }, index * 500); // 500ms delay between each word
-    });
+    // Check if this is the first visit in this session
+    const hasVisited = sessionStorage.getItem('hasVisited');
+    
+    if (!hasVisited) {
+        // First visit in this session - show animation
+        welcomeScreen.classList.remove('hidden');
+        words.forEach((word, index) => {
+            setTimeout(() => {
+                word.style.animation = 'popUp 0.5s ease-out forwards';
+            }, index * 500); // 500ms delay between each word
+        });
 
-    // Hide welcome screen after all words have appeared plus a bit of extra time
-    setTimeout(() => {
-        welcomeScreen.classList.add('hidden');
-    }, words.length * 500 + 1000); // Total animation time plus 1 second
+        // Hide welcome screen after all words have appeared plus a bit of extra time
+        setTimeout(() => {
+            welcomeScreen.classList.add('hidden');
+            // Set the flag in sessionStorage
+            sessionStorage.setItem('hasVisited', 'true');
+        }, words.length * 500 + 1000); // Total animation time plus 1 second
+    }
 });
 
 // Smooth scrolling for navigation links
