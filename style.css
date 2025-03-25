@@ -468,23 +468,40 @@ section {
 }
 
 .article-container {
-    display: flex;
-    text-align: initial;
-    flex-wrap: wrap;
-    flex-direction: row;
-    gap: 2.5rem;
-    justify-content: space-around;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    padding: 1rem;
+    justify-items: center;
 }
 
 article {
     display: flex;
-    width: 10rem;
-    justify-content: space-around;
+    align-items: center;
     gap: 0.5rem;
+    width: 100%;
+    max-width: 200px;
 }
 
 article .icon {
-    cursor: default;
+    width: 30px;
+    height: 30px;
+    flex-shrink: 0;
+}
+
+article div {
+    flex: 1;
+    text-align: left;
+}
+
+article h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.2rem;
+}
+
+article p {
+    font-size: 0.9rem;
+    color: #666;
 }
 
 /* PROJECTS SECTION */
