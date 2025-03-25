@@ -10,6 +10,7 @@ function toggleMenu() {
 document.addEventListener('DOMContentLoaded', function() {
     const welcomeScreen = document.querySelector('.welcome-screen');
     const words = document.querySelectorAll('.welcome-word');
+    const mainContent = document.querySelector('.main-content');
     
     // Check if this is the first visit in this session
     const hasVisited = sessionStorage.getItem('hasVisited');
@@ -17,18 +18,27 @@ document.addEventListener('DOMContentLoaded', function() {
     if (!hasVisited) {
         // First visit in this session - show animation
         welcomeScreen.classList.remove('hidden');
+        mainContent.classList.add('fade-out');
         words.forEach((word, index) => {
             setTimeout(() => {
                 word.style.animation = 'popUp 0.5s ease-out forwards';
             }, index * 500); // 500ms delay between each word
         });
 
-        // Hide welcome screen after all words have appeared plus a bit of extra time
+        // Hide welcome screen after all words have appeared 
         setTimeout(() => {
             welcomeScreen.classList.add('hidden');
-            // Set the flag in sessionStorage
-            sessionStorage.setItem('hasVisited', 'true');
-        }, words.length * 500 + 1000); // Total animation time plus 1 second
+            // Wait for welcome screen to fade out before showing main content
+            setTimeout(() => {
+                mainContent.classList.remove('fade-out');
+                // Set the flag in sessionStorage
+                sessionStorage.setItem('hasVisited', 'true');
+            }, 500); 
+        }, words.length * 500 + 1000); 
+    } else {
+        // Not first visit - hide welcome screen immediately
+        welcomeScreen.classList.add('hidden');
+        mainContent.classList.remove('fade-out');
     }
 });
 
